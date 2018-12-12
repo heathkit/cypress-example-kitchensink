@@ -7,7 +7,7 @@ context('Actions', () => {
 
   // https://on.cypress.io/interacting-with-elements
 
-  it('.type() - type into a DOM element', () => {
+  xit('.type() - type into a DOM element', () => {
     // https://on.cypress.io/type
     cy.get('.action-email')
       .type('fake@email.com').should('have.value', 'fake@email.com')
@@ -24,7 +24,8 @@ context('Actions', () => {
 
       // Delay each keypress by 0.1 sec
       .type('slow.typing@email.com', { delay: 100 })
-      .should('have.value', 'slow.typing@email.com')
+      //.should('have.value', 'low.typing@email.com')
+      .should('have.value', 'bad value')
 
     cy.get('.action-disabled')
       // Ignore error checking prior to type
@@ -37,7 +38,7 @@ context('Actions', () => {
     // https://on.cypress.io/focus
     cy.get('.action-focus').focus()
       .should('have.class', 'focus')
-      .prev().should('have.attr', 'style', 'color: orange;')
+      .prev().should('have.attr', 'style', 'color: blue;')
   })
 
   it('.blur() - blur off a DOM element', () => {
@@ -45,6 +46,9 @@ context('Actions', () => {
     cy.get('.action-blur').type('About to blur').blur()
       .should('have.class', 'error')
       .prev().should('have.attr', 'style', 'color: red;')
+
+    cy.get('.bad-selector')
+      .should('have.class','success');
   })
 
   it('.clear() - clears an input or textarea element', () => {

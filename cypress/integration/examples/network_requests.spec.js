@@ -15,7 +15,7 @@ context('Network Requests', () => {
       // you can override any of these options
       expect(server.delay).to.eq(0)
       expect(server.method).to.eq('GET')
-      expect(server.status).to.eq(200)
+      expect(server.status).to.eq(500)
       expect(server.headers).to.be.null
       expect(server.response).to.be.null
       expect(server.onRequest).to.be.undefined
